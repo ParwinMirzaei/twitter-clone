@@ -11,7 +11,7 @@ function App() {
 
   return (
     <div className="app">
-      <h1>My Twitter Clone</h1>
+      <h1>This is not Tweeter</h1>
       <TweetInput onAddTweet={addTweet} />
       <TweetList tweets={tweets} />
     </div>

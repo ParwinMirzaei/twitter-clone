@@ -16,9 +16,9 @@ function TweetInput({ onAddTweet }) {
       <textarea
         value={content}
         onChange={(e) => setContent(e.target.value)}
-        placeholder="What's happening?"
+        placeholder="Seriously, who cares about your tweets?"
       />
-      <button type="submit">Tweet</button>
+      <button type="submit">UNTWEET</button>
     </form>
   );
 }
