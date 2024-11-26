@@ -2,20 +2,20 @@ import React, { useState } from 'react';
 import TweetInput from './TweetInput';
 import TweetList from './TweetList';
 
-function App() {
+const App = () => {
   const [tweets, setTweets] = useState([]);
 
-  const addTweet = (newTweet) => {
-    setTweets([newTweet, ...tweets]);
+  const addTweet = (tweet) => {
+    setTweets([tweet, ...tweets]);
   };
 
   return (
-    <div className="app">
-      <h1>This is not Tweeter</h1>
-      <TweetInput onAddTweet={addTweet} />
+    <div>
+      <h1>Twitter Clone</h1>
+      <TweetInput addTweet={addTweet} />
       <TweetList tweets={tweets} />
     </div>
   );
-}
+};
 
 export default App;
