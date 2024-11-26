@@ -1,26 +1,27 @@
 import React, { useState } from 'react';
 
-function TweetInput({ onAddTweet }) {
-  const [content, setContent] = useState('');
+const TweetInput = ({ addTweet }) => {
+  const [tweet, setTweet] = useState('');
 
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    if (content.trim() !== '') {
-      onAddTweet({ content }); 
-      setContent(''); 
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (tweet.trim()) {
+      addTweet(tweet);
+      setTweet('');
     }
   };
 
   return (
     <form onSubmit={handleSubmit}>
-      <textarea
-        value={content}
-        onChange={(e) => setContent(e.target.value)}
-        placeholder="Seriously, who cares about your tweets?"
+      <input
+        type="text"
+        value={tweet}
+        onChange={(e) => setTweet(e.target.value)}
+        placeholder="What's happening?"
       />
-      <button type="submit">UNTWEET</button>
+      <button type="submit">Tweet</button>
     </form>
   );
-}
+};
 
 export default TweetInput;
