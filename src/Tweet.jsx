@@ -1,7 +1,11 @@
 import React from 'react';
 
-function Tweet({ tweet }) {
-  return <li>{tweet.content}</li>;
-}
+const Tweet = ({ content }) => {
+  return (
+    <li>
+      <p>{content}</p>
+    </li>
+  );
+};
 
 export default Tweet;
