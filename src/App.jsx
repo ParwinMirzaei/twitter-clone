@@ -5,21 +5,22 @@ import TweetList from './TweetList';
 const App = () => {
   const [tweets, setTweets] = useState([]);
 
-  const addTweet = (tweetContent) => {
-    const timestamp = new Date().toLocaleString(); // Current date and time
+  const addTweet = (content) => {
     const newTweet = {
-      content: tweetContent,
-      timestamp: timestamp,
+      content,
+      timestamp: new Date().toLocaleString(),
       likes: 0,
-      avatarUrl: 'https://via.placeholder.com/50', // Placeholder avatar
+      avatarUrl: "https://i.pravatar.cc/40", // Placeholder avatar URL
     };
-    setTweets([newTweet, ...tweets]);
+    setTweets((prevTweets) => [newTweet, ...prevTweets]);
   };
 
   const handleLike = (index) => {
-    const updatedTweets = [...tweets];
-    updatedTweets[index].likes += 1;
-    setTweets(updatedTweets);
+    setTweets((prevTweets) =>
+      prevTweets.map((tweet, i) =>
+        i === index ? { ...tweet, likes: tweet.likes + 1 } : tweet
+      )
+    );
   };
 
   return (
